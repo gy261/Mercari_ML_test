@@ -43,7 +43,7 @@ Then run ```python3 Client_sync.py``` or ```python3 Client_async.py```.
 
 ## Help
 
-Type  ```help``` to see valid commands in ```Client.async.py```.
+Type  ```help``` to see valid commands in ```Client_async.py```.
 
 
 
