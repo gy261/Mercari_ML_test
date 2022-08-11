@@ -42,7 +42,7 @@ Run ```python3 Server.py```
 
 * If you want to test the codes, simply run ```python3 Client_sync.py``` or ```python3 Client_async.py```.
 
-* If you want to change the images you want to send to ```Client_async.py```: First put all your images in the same directory as the ```Client_async.py```, and create a ```<your_image>.txt``` file. Then Run ```python3 Client_async.py```, type ```img_bundle```, enter the absolute path of ```<your_image>.txt```, and run ```multi-post```. After the tasks are done, you can access the output by typing ```get``` and enter your ```task_id```.
+* If you want to change the images you want to send to ```Client_async.py```: First put all your images in the same directory as the ```Client_async.py```, and create a ```<your_image>.txt``` file. Then Run ```python3 Client_async.py```, type ```img_bundle```, enter the absolute path of ```<your_image>.txt```, and run ```multi-post```. After the tasks are done, you can access the output by typing ```get```, and then entering your ```task_id``` as prompted.
 
 ## Help
 
