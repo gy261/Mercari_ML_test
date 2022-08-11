@@ -4,7 +4,18 @@ This is Guo Yang's Submission for the Mercari ML test.
 
 ## Description
 
-...
+The codes implements the required API.
+
+* ```Server.py```: Run on the local server. Implement both the ```/image-sync``` and ```/image``` endpoints.
+
+* ```Client_sync.py```: For synchronous OCR. Equivalent to ```curl -POST "http://localhost:5000/image-sync" -d '{"image_data": "<b64 encoded image>"}'```
+
+* ```Client_async.py```: For asynchronous OCR. Equivalent to ```curl -POST "http://localhost:5000/image" -d '{"image_data": "<b64 encoded image>"}'```. Run this file also enters a testing loop, where the user can continuously ```POST``` images, receive ```task_id``` and ```GET``` OCR text back. User can also post a batch of images in a row.
+
+* ```img.txt```: Stores the file names of a batch of images.
+
+* ```<name>.tif```: The test photos.
+
 
 ## Getting Started
 
@@ -26,43 +37,13 @@ $ apt-get update && apt-get install -y tesseract-ocr-eng
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+Run ```python3 Server.py```
+
+Then run ```python3 Client_sync.py``` or ```python3 Client_async.py```.
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+Type  ```help``` to see valid commands in ```Client.async.py```.
 
-## Authors
 
-Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
