@@ -16,7 +16,7 @@ The codes implements the required API.
 
 * ```<name>.tif```: The test photos.
 
-* For more details, please refer to the comments in the <name>.py files.
+* For more details, please refer to the comments in the ```<name>.py``` files.
 
 ## Getting Started
 
