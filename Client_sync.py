@@ -4,6 +4,8 @@
 import subprocess
 import json
 import base64
+import os
+import sys
 
 # Convert the image_data to b64-encoded payload data:
 def get_image_input(file_path):
@@ -25,7 +27,7 @@ def get_text_output(url, img_json):
 if __name__ == "__main__":
     # /image-sync
     url = "http://localhost:5000/image-sync"
-    file_path = "./phototest.tif"
+    file_path = os.path.join(sys.path[0], "phototest.tif")
     img_input = get_image_input(file_path)
 
     # Convert the image_data to json data type

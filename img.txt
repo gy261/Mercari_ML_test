@@ -1,0 +1,3 @@
+phototest_1.tif
+phototest_2.tif
+phototest_3.tif

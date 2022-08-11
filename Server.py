@@ -8,6 +8,8 @@ import subprocess
 import time
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
+import sys
+import os
 
 app = Flask(__name__)
 
@@ -39,18 +41,20 @@ def image_sync():
         
         # Generate a task ID, which is then used to name the files.
         id = task_id_generator()
-        image_name = "submit_image_" + id
-        text_name = "task_" + id
+        image_name = "sync_img_" + id
+        image_path = os.path.join(sys.path[0], image_name)
+        text_name = "sync_" + id
+        text_path = os.path.join(sys.path[0], text_name)
 
         # Write the image_data into an image file
-        open(image_name, "wb").write(img_data)
+        open(image_path, "wb").write(img_data)
 
         # Run the command to get output text from ocr_cmd, which will be stored in the text_name file.
-        ocr_cmd = ['tesseract', '--psm', '1', '--oem', '1', image_name, text_name]
+        ocr_cmd = ['tesseract', '--psm', '1', '--oem', '1', image_path, text_path]
         subprocess.run(ocr_cmd, stdout=subprocess.PIPE)
         
         # Cat the content in the text_name file:
-        text = subprocess.check_output(['cat',text_name+'.txt']).decode('utf-8')
+        text = subprocess.check_output(['cat',text_path +'.txt']).decode('utf-8')
         
         # Return the content in a json data type:
         text_json = {"text":text}
@@ -139,7 +143,8 @@ def image():
         # if the task_id is finished, then cat the output text from stored text file.
         else:
             task_name = "task_" + task_id
-            task_text = subprocess.check_output(['cat',task_name+'.txt']).decode('utf-8')    
+            task_path = os.path.join(sys.path[0], task_name)
+            task_text = subprocess.check_output(['cat',task_path+'.txt']).decode('utf-8')    
 
         # Return the text
         text_json = jsonify({"task_id": task_text})
@@ -155,13 +160,16 @@ def image():
         # Generate task_id and use it to name image and text files.
         task_id = Task_set.new()
         image_name = "submit_image_" + task_id
+        image_path = os.path.join(sys.path[0], image_name)
         text_name = "task_" + task_id
+        text_path = os.path.join(sys.path[0], text_name)
+
 
         # Write the image_data into the image file.
-        open(image_name, "wb").write(img_data)
+        open(image_path, "wb").write(img_data)
         
         # Add background job to run the OCR command line, so that the user does not need to wait
-        ocr.add_job(Task_set.ocr_cmd_run,  args=[image_name, text_name, task_id])
+        ocr.add_job(Task_set.ocr_cmd_run,  args=[image_path, text_path, task_id])
         
         # Return the task_id
         id_json = jsonify({"task_id":task_id})
