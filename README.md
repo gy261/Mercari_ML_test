@@ -8,9 +8,9 @@ The codes implements the required API.
 
 * ```Server.py```: Run on the local server. Implement both the ```/image-sync``` and ```/image``` endpoints.
 
-* ```Client_sync.py```: For synchronous OCR. Equivalent to ```curl -POST "http://localhost:5000/image-sync" -d '{"image_data": "<b64 encoded image>"}'```
+* ```Client_sync.py```: For synchronous OCR. Equivalent to ```curl -XPOST "http://localhost:5000/image-sync" -d '{"image_data": "<b64 encoded image>"}'```
 
-* ```Client_async.py```: For asynchronous OCR. Equivalent to ```curl -POST "http://localhost:5000/image" -d '{"image_data": "<b64 encoded image>"}'```. Run this file also enters a testing loop, where the user can continuously ```POST``` images, receive ```task_id``` and ```GET``` OCR text back. User can also post a batch of images in a row.
+* ```Client_async.py```: For asynchronous OCR. Equivalent to ```curl -XPOST "http://localhost:5000/image" -d '{"image_data": "<b64 encoded image>"}'```. Run this file also enters a testing loop, where the user can continuously ```POST``` images, receive ```task_id``` and ```GET``` OCR text back. User can also post a batch of images in a row.
 
 * ```img.txt```: Stores the file names of a batch of images.
 
@@ -35,6 +35,7 @@ $ python3 -m pip install flask
 $ python3 -m pip install apscheduler  
 $ apt-get update && apt-get install -y tesseract-ocr-eng  
 ```
+## Demo
 
 ### Executing program
 
