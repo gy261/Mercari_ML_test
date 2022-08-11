@@ -37,6 +37,8 @@ $ apt-get update && apt-get install -y tesseract-ocr-eng
 ```
 ## Demo
 
+* This is a small demo to show the usage: https://drive.google.com/file/d/1a_dH3EsBEeln-0zrtJll7StMyGzy9FHZ/view?usp=sharing
+
 ### Executing program
 
 Run ```python3 Server.py```
