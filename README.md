@@ -1,6 +1,6 @@
 # Mercari_ML_test
 
-This is Guo Yang's Submission for the Mercari ML test.
+This is Guo Yang (gy261@cam.ac.uk)'s Submission for the Mercari ML test.
 
 ## Description
 
